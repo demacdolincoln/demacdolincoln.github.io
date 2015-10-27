@@ -1,0 +1,309 @@
+<!--
+slidedeck: A modification of the Google IO 2012 HTML5 slide template
+URL: https://github.com/rmcgibbo/slidedeck
+
+Based on https://github.com/francescolaffi/elastic-google-io-slides, and
+ultimately:
+
+Google IO 2012 HTML5 Slide Template
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahe <lukem@google.com>
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Computação Científica com Python</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+   <link rel="shortcut icon" href=" "/> 
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="all" href="theme/css/custom.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides", src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
+
+  <!-- MathJax support  -->
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    showProcessingMessages: false,
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+  </script>
+  <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
+
+</head>
+
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+<slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+
+    <h1> Computação Científica com Python</h1>
+    <h2> Introduçã e ferramentas</h2>
+    <p> Lincoln de Macêdo<br/> </p>
+  </hgroup>
+</slide>
+
+
+<slide  >
+  
+    <hgroup>
+      <h2>Sobre mim</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Aluno de Licenciatura Plena em Computação</li>
+<li>Membro da comunidade Python de Pernambuco - PUG-PE</li>
+<li>Pesquiso sobre IA desde o 2º período</li>
+<li>Estudo especialmente sobre inteligência de enxame de partículas</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Quem são vocês?</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Curso</li>
+<li>O quanto sabem programar</li>
+<li>Motivações de estar aqui</li>
+<li>Interesses futuros acerca dos assuntos abordados</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Dia 1</h2>
+      <h3>Breves noções sobre Computação Científica</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Computação como ciência</h2>
+      <h3>O que fazemos nesta área</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Foco no método</li>
+<li>Conceitos de outras ciências</li>
+<li>Forte embasamento estatístico e matemático</li>
+<li>Se espalha em diversas categorias:<ul class="build">
+<li>Inteligência Artificial</li>
+<li>Reconhecimento de padrões</li>
+<li>Ciência dos dados</li>
+<li>Computação Quântica</li>
+<li>Várias outras que vão surgindo e sumindo ao longo do tempo</li>
+</ul>
+</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Computação como ciência</h2>
+      <h3>Desafios</h3>
+    </hgroup>
+    <article ><ul class="build">
+<li>Problemas com solução exponencial X solução polinomial</li>
+<li>Expressar de forma legível procedimentos complexos</li>
+<li>Custo computacional<ul class="build">
+<li>Muitos calculos: exige muito do processador</li>
+<li>Muitos dados: exige muito de memória</li>
+</ul>
+</li>
+<li>Precisamos de números aleatórios de qualidade</li>
+</ul></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Exemplos</h2>
+      <h3></h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Sequência de Fibonacci</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="Python">
+def fib():
+
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>MDC</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><pre class="prettyprint" data-lang="Python">
+def mdc(a, b):
+    if b == 0:
+        return a
+    else:
+        return mdc(b, a % b)
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Análise Combinatória</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>Fatorial:</p>
+<pre class="prettyprint" data-lang="Python">
+def fatorial(n):
+    if n == 1:
+        return n
+    else:
+        return n * fatorial(n-1)
+
+</pre>
+
+<p>Permutação:</p>
+<pre class="prettyprint" data-lang="Python">
+def permutacao(a, b):
+    return fatorial(a) / fatorial(a - b)
+</pre></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>busca</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><p>???</p></article>
+ 
+</slide>
+
+<slide class="segue dark nobackground" >
+  
+    <!-- <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside> -->
+    <hgroup class="auto-fadein">
+      <h2>Dia 2</h2>
+      <h3>Ferramentas</h3>
+    </hgroup>
+  
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Manipulação de dados</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Numpy</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Bibliotecas científicas</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>SciKit Learning (sklearn)</li>
+<li>SciPy</li>
+</ul></article>
+ 
+</slide>
+
+<slide  >
+  
+    <hgroup>
+      <h2>Visualização de dados</h2>
+      <h3></h3>
+    </hgroup>
+    <article ><ul>
+<li>Matplotlib</li>
+<li>Pandas</li>
+<li>Lightning Viz</li>
+<li>PyQtGraph</li>
+</ul></article>
+ 
+</slide>
+
+
+<slide class="thank-you-slide segue nobackground">
+  <!-- <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside> -->
+  <article class="flexbox vleft auto-fadein">
+    <h2> Obrigado a todos!</h2>
+    <p> </p>
+  </article>
+  <p data-config-contact class="auto-fadein"> <span>www</span> <a href="http://www.google.edu/">website</a><br/> <span>github</span> <a href="http://github.com">username</a></p>
+  </p>
+</slide>
+
+<slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
