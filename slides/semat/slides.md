@@ -94,12 +94,12 @@ Permutação:
 <pre class="prettyprint" data-lang="Python">
 def permutacao(a, b):
     return fatorial(a) / fatorial(a - b)
-</pre>
- 
+</pre> 
+
 ---
 title: busca
 
-???
+Gostaria de ter falado aqui sobre diversas situações que envolvem busca, como encontrar o menor caminho (problema do caixeiro viajante), encontrar o melhor parâmetro para determinado algoritmo e questionar, usando exemplos, momentos em que a ordenação otimiza a busca e ao menos dar um exemplo de busca binária, infelizmente o tempo não deixou.
 
 ---
 title: Dia 2
@@ -115,7 +115,7 @@ title: Manipulação de dados
         + random → módulo com vários métodos para criar valores aleatórios
         + linspace → cria um array de valores aleatórios (muito útil para testes)
         + array → vários recursos que as listas de python não tem
-        + muitas expressões prontas, como: tan, cos, sin, exp, sqrt, etc.
+        + muitas expressões prontas
 
 ---
 title: Pandas
@@ -150,8 +150,9 @@ title: Visualização de dados
     * Mais usado 
     * <a href="http://matplotlib.org">matplotlib.org</a>
     * Para gráficos em 3d: <a href="http://matplotlib.org/mpl_toolkits/">mpl_toolkits/</a>
-- Lightning Viz
-- PyQtGraph
+- <a href="http://lightning-viz.org/">Lightning Viz</a>
+
+- <a href="http://pyqtgraph.org/">PyQtGraph</a>
 
 ---
 title: Jupyter
@@ -170,9 +171,14 @@ class: segue dark nobackground
 
 ---
 title: Expressões matemáticas
+subtitle: Represente em funções e exiba o gráfico de:
 
-- $f(x) = x^5 - cos(x)$
-- $f(x) = log_{10} x * (sen(x)^x)$
+* $F(x) = x^5 - cos(x)$
+* $G(x) = sen(x)^\pi$
+* $H(x) = log_{10} x * (sen(x)^x)$
+* $FoG$ e  $GoF$
+
+<footer class="source"><a href="https://github.com/demacdolincoln/semat">Clique aqui para ver as respostas</a> <footer>
 
 ---
 title: Represente o grafo abaixo
@@ -180,3 +186,44 @@ subtitle: Como você o percorreria de A a M?
 class img-top-center
 
 <img src="figures/grafo.jpg" width="772" height="384">
+
+---
+title: Extras
+subtitle: Tipos de gráficos
+class: segue dark nobackground
+
+---
+title: Lines
+class img-top-center
+
+Entrada: listas (numpy array ou pandas Series)
+
+<img src="figures/line_plot.png">
+
+---
+title: Bar | Barh
+class img-top-center
+
+Entrada: Listas ou dicionários (pandas Dataframe)
+
+<img src="figures/bar.png">
+
+---
+title: Scatter
+class img-top-center
+
+Entrada: Coordenadas x e y (e z se em 3D), geralmente representadas por duas listas, uma para x e outra para y ou como uma lista de tuplas que contém as coordenadas x e y (depende da ferramenta usada para plotar gráficos)
+
+<img src="figures/scatter_plot.png">
+
+---
+title: Hist | Kde
+class img-top-center
+
+Representa a frequência de distribuição de dados, no matplotlib/pandas existem 2 tipos diferentes de gráficos para mesma finalidade:
+
+* hist → faz a representação através de barras
+* kde → faz a representação através de linhas contínuas
+
+<img src="figures/density_plot.png">
+
